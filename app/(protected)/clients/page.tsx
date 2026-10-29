@@ -7,7 +7,7 @@ import { formatFCFA } from '@/lib/utils/format';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Users, Plus, Search, Phone, Tag } from 'lucide-react';
+import { Users, Plus, Search, Phone, Tag, Upload } from 'lucide-react';
 
 type Client = {
   id: string;
@@ -94,12 +94,20 @@ export default function ClientsPage() {
             {clients.length} client{clients.length > 1 ? 's' : ''}
           </p>
         </div>
-        <Link href="/clients/new">
-          <Button size="sm" className="gap-1">
-            <Plus className="h-4 w-4" />
-            Client
-          </Button>
-        </Link>
+        <div className="flex gap-2">
+          <Link href="/clients/import">
+            <Button size="sm" variant="outline" className="gap-1">
+              <Upload className="h-4 w-4" />
+              Importer
+            </Button>
+          </Link>
+          <Link href="/clients/new">
+            <Button size="sm" className="gap-1">
+              <Plus className="h-4 w-4" />
+              Client
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {clients.length > 0 && (
